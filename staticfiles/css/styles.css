@@ -1,0 +1,91 @@
+body {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.todo-item--completed {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.todo-actions {
+    margin-left: auto;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button--primary {
+    background: #4CAF50;
+    color: white;
+}
+
+.button--delete {
+    background: #f44336;
+    color: white;
+}
+
+.add-form {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.input-text {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.messages {
+    margin-bottom: 1rem;
+}
+
+.message {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+.message--error {
+    background: #ffebee;
+}
+
+.message--success {
+    background: #e8f5e9;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

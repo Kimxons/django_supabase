@@ -1,0 +1,30 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+    <h1>Todo List</h1>
+
+    {% if messages %}
+    <section class="messages">
+        {% for message in messages %}
+            <div class="message message--{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </section>
+    {% endif %}
+
+    <ul class="todo-list">
+        {% for todo in todos %}
+            {% include 'myapp/partials/todo_item.html' with todo=todo %}
+        {% endfor %}
+    </ul>
+
+    <section class="add-form">
+        <form method="post" action="{% url 'add_todo' %}">
+            {% csrf_token %}
+            <label for="task-input" class="sr-only">Enter a task</label>
+            <input type="text" id="task-input" name="task" placeholder="Enter a task" required>
+            <button type="submit" class="button button--primary">Add Todo</button>
+        </form>
+    </section>
+{% endblock %}

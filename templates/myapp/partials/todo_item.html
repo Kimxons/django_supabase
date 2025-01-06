@@ -1,0 +1,22 @@
+<li class="todo-item {% if todo.completed %}todo-item--completed{% endif %}">
+    <form method="post" action="{% url 'update_todo' todo.id %}" style="display: flex; align-items: center; gap: 1rem; flex: 1;">
+        {% csrf_token %}
+        <label for="completed-{{ todo.id }}" class="sr-only">Mark as completed</label>
+        <input 
+            type="checkbox" 
+            id="completed-{{ todo.id }}" 
+            name="completed" 
+            {% if todo.completed %}checked{% endif %}
+            onchange="this.form.submit()" 
+        >
+        <input type="hidden" name="task" value="{{ todo.task }}">
+        <span>{{ todo.task }}</span>
+    </form>
+
+    <div class="todo-actions">
+        <form method="post" action="{% url 'delete_todo' todo.id %}">
+            {% csrf_token %}
+            <button type="submit" class="button button--delete">Delete</button>
+        </form>
+    </div>
+</li>
